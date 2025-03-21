@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,9 +48,10 @@ fun CharacterListScreen(viewModel: CharacterViewModel) {
     val characters by viewModel.characters
     val errorMessage by viewModel.errorMessage
     val isLoading by viewModel.isLoading
+    val apiKey = stringResource(id = R.string.api_key)
 
     LaunchedEffect(Unit) {
-        viewModel.loadCharacters("Bearer 754t!si@glcE2qmOFEcN")
+        viewModel.loadCharacters(apiKey)
     }
 
     if (isLoading) {
